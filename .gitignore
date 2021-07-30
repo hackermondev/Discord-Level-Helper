@@ -3,4 +3,5 @@ node_modules/
 dist/
 tmp/
 .env
+keys/
 # package-lock.json

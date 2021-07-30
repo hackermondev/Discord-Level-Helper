@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chibat/chrome-extension-typescript-starter.git"
+    "url": "https://github.com/hackermondev/Discord-Level-Helper"
   },
   "dependencies": {
     "node-fetch": "^2.6.1",

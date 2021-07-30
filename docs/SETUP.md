@@ -1,17 +1,24 @@
 # Installing on Chrome
 
-* Go to the [releases](https://github.com/hackermondev/Discord-Level-Helper/releases) and download the ``extension.crx`` file on your computer. Save it some where useful because you'll need it again. 
+* Go to the [releases](https://github.com/hackermondev/Discord-Level-Helper/releases) and download the ``Files.zip`` file on your computer. Unzip the file and their should be a folder called ``dist``. Save that folder because you will need it.
 
 * Open a new tab on your Google Chrome browser and type in ``chrome://extensions``. This is how you will upload the extension
 
-* Drag the ``extension.crx`` file that you downloaded earlier onto the page and a popup should appear, accept the permissions and install the extension.
+* Enable the ``Developer mode`` option on the top right. Then click the ``Load unpacked`` button and choose the ``dist`` folder you downloaded earlier.
 
+* The extension has been loaded. You will need to set it up. Read below to learn more.
 
 # Setting up the extension
 
 * Go to https://discord.com and make sure you are logged in to Discord on the chrome browser.
-* Yuo will also need to be logged in the official https://mee6.xyz website. Go to that website and ``Login with Discord```
 
+* You will also need to be logged in the official https://mee6.xyz website. Go to that website and ``Login with Discord``
+
+* Once you've logged in to Discord, reload the MEE6 dashboard page.
+
+* Restart your Chrome browser
+
+* You have successfully setup the extension. Go to https://discord.com/app to start using it.
 
 # Issues
 

@@ -8,6 +8,8 @@ A chrome extension to help you level up on Discord servers using [MEE6](https://
 
 I enjoy grinding on discord servers to earn more levels/xp on MEE6 but sometimes it is really hard to grind. Basically the way MEE6 leveling works is by giving you a certain amount of XP per message every minute. Most people don't understand the "every minute' part. This means if you send 50 messages in one minute, you will only earn XP for one of those message. This is really annoying in some sitatuions when you're really active but MEE6 only gives you XP for one message. This extension doesn't bypass that and instead puts a timer on your Discord client which tells you the next time you should send a message and the extension tells you how much XP you earned from a message when you send it.
 
+![gif1](https://i.ibb.co/9G77wPD/Screen-recording-2021-07-30-6545.gif)
+![image1](https://i.matdoes.dev/image/38b3dce0da73e575313ceae9dbe32d19)
 
 ## What it does
 
@@ -20,8 +22,8 @@ This extension will puts a timer on your Discord client which tells you the next
 
 ## Project Structure
 
-* src/typescript: TypeScript source files
-* src/assets: static files
+* src: TypeScript source files
+* public: static files
 * dist: Chrome Extension directory
 * dist/js: Generated JavaScript files
 

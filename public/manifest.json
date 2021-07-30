@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+
+  "name": "Discord Level Helper",
+  "description": "Chrome extension to help you level up faster on discord servers using the bot MEE6.",
+  "version": "1.0",
+
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "128": "icon.png"
+    },
+    "default_title": "Discord Level Helper"
+  },
+
+  "content_scripts": [
+      {
+          "matches": ["https://mee6.xyz/*"],
+          "js": ["js/vendor.js", "js/mee6_content_script.js"]
+      },
+      {
+        "matches": ["https://discord.com/*"],
+        "js": ["js/vendor.js", "js/discord_content_script.js"]
+      }
+  ],
+
+  "background": {
+    "scripts": ["js/vendor.js", "js/background.js"]
+  },
+
+  "permissions": [
+    "storage",
+    "webRequest",
+    "https://discord.com/*",
+    "https://mee6.xyz/*"
+  ]
+}

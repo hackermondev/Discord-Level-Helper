@@ -35,6 +35,7 @@
   "permissions": [
     "storage",
     "webRequest",
+    "webNavigation",
     "https://discord.com/*",
     "https://mee6.xyz/*"
   ]

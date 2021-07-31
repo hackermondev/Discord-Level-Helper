@@ -5,8 +5,11 @@ import MEE6Api, { GuildDetailsPlayer } from "./core/MEE6Api";
 
 const mee6 = new MEE6Api();
 var currentData: any = {};
+var discordtabs: chrome.tabs.Tab[] = [];
 
 var currentTab: string | null = null;
+var requiresMEE6Auth: boolean = false;
+
 /*
 
 ######                                          #                                      #     #           #     #                                    ### 
@@ -20,6 +23,48 @@ var currentTab: string | null = null;
 
 
 */
+
+chrome.webNavigation.onCompleted.addListener(
+  (event: chrome.webNavigation.WebNavigationFramedCallbackDetails) => {
+    if (event.frameId !== 0) return;
+
+    chrome.tabs.get(event.tabId, (tab: chrome.tabs.Tab) => {
+      if (tab.url == `https://${config.mee6.host}/discord-level-helper-login`) {
+        chrome.tabs.remove(tab.id || 0);
+
+        discordtabs.forEach((tab: chrome.tabs.Tab) => {
+          chrome.tabs.remove(tab.id || 0);
+        });
+      }
+
+      if (tab.url) {
+        var url = new URL(tab.url);
+
+        if (url.hostname == config.discord.hostname) {
+          discordtabs.push(tab);
+        }
+      }
+    });
+  }
+);
+
+chrome.browserAction.onClicked.addListener((tab: chrome.tabs.Tab) => {
+  if (!tab.url) {
+    return;
+  }
+
+  const tabURL: URL = new URL(tab.url);
+
+  if (tabURL.hostname != config.discord.hostname) {
+    return;
+  }
+
+  if (requiresMEE6Auth) {
+    chrome.tabs.create({
+      url: `https://${config.mee6.host}/api/login?redirect=/discord-level-helper-login&login_type=DEFAULT`,
+    });
+  }
+});
 
 var discordTabUpdatedCallback = (tab: chrome.tabs.Tab) => {
   if (!tab.url) {
@@ -57,6 +102,7 @@ var discordTabUpdatedCallback = (tab: chrome.tabs.Tab) => {
     if (guildDetails.player == null) {
       // chrome.tabs.create({ url: `https://${config.mee6.host}/api/login`})
 
+      requiresMEE6Auth = true;
       return console.log(`User is not logged in on MEE6.`);
     }
 
@@ -138,6 +184,7 @@ chrome.webRequest.onCompleted.addListener(
         }
 
         if (guildDetails.player == null) {
+          requiresMEE6Auth = true;
           return console.log(`User is not logged in on MEE6.`);
         }
 

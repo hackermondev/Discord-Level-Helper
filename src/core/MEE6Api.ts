@@ -40,8 +40,22 @@ class MEE6Api {
 
           console.log(`MEE6 Account Token is ${this._token}`);
           this.defaultRequestHeaders.set(`authorization`, this._token || ``);
+        } else {
+          console.log(`Waiting for MEE6 token...`);
         }
       });
+
+      chrome.runtime.onMessage.addListener(
+        (message: any, sender: chrome.runtime.MessageSender) => {
+          if (message.op == `mee6_account_token`) {
+            console.log(`Got MEE6 token: ${message.d}`);
+            this._token = message.d;
+
+            console.log(`MEE6 Account Token is ${this._token}`);
+            this.defaultRequestHeaders.set(`authorization`, this._token || ``);
+          }
+        }
+      );
 
       this._fetch = fetch.bind(window);
     } else {

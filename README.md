@@ -32,7 +32,7 @@ This extension will puts a timer on your Discord client which tells you the next
 
 ### Firefox
 
-Download it from Firefox [here](https://addons.mozilla.org/addon/discord-level-helper/)
+Download it from Firefox [here](https://addons.mozilla.org/addon/discord-level-helper/). After you have downloaed it, make sure you are logged in on the [MEE6](https://mee6.xyz) website for the extension to work properly.
 
 ### Chrome
 Since I am a small developer and I can't publish this on Chrome Web Store, you have to load it into your Google Chrome. Read [this](docs/SETUP.md)

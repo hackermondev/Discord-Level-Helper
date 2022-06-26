@@ -17,7 +17,7 @@
     "url": "https://github.com/hackermondev/Discord-Level-Helper"
   },
   "dependencies": {
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
